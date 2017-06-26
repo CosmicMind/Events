@@ -7,13 +7,8 @@ Pod::Spec.new do |s|
     s.social_media_url = 'https://www.facebook.com/cosmicmindcom'
     s.authors = { 'CosmicMind, Inc.' => 'support@cosmicmind.com' }
     s.source = { :git => 'https://github.com/CosmicMind/Material.git', :tag => s.version }
-
-    s.default_subspec = 'Core'
     s.platform = :ios, '8.0'
-
-    s.subspec 'Core' do |s|
-        s.ios.deployment_target = '8.0'
-        s.ios.source_files = 'Sources/*.swift'
-        s.requires_arc = true
-    end
+    s.ios.deployment_target = '8.0'
+    s.ios.source_files = 'Sources/*.swift'
+    s.requires_arc = true
 end
