@@ -1,4 +1,4 @@
-## Welcome to Events
+## Moments
 
 A framework for managing dates, time, reminders, and calendars.
 
