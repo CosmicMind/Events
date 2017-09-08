@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "965689781F017C0F001C656D"
-               BuildableName = "Events.framework"
-               BlueprintName = "Events"
-               ReferencedContainer = "container:Events.xcodeproj">
+               BlueprintIdentifier = "96DA95291F635E32008BFF65"
+               BuildableName = "Moments.framework"
+               BlueprintName = "Moments"
+               ReferencedContainer = "container:Moments.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "965689781F017C0F001C656D"
-            BuildableName = "Events.framework"
-            BlueprintName = "Events"
-            ReferencedContainer = "container:Events.xcodeproj">
+            BlueprintIdentifier = "96DA95291F635E32008BFF65"
+            BuildableName = "Moments.framework"
+            BlueprintName = "Moments"
+            ReferencedContainer = "container:Moments.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "965689781F017C0F001C656D"
-            BuildableName = "Events.framework"
-            BlueprintName = "Events"
-            ReferencedContainer = "container:Events.xcodeproj">
+            BlueprintIdentifier = "96DA95291F635E32008BFF65"
+            BuildableName = "Moments.framework"
+            BlueprintName = "Moments"
+            ReferencedContainer = "container:Moments.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -1,6 +1,6 @@
 ## Welcome to Events
 
-A framework for managing events in iOS.
+A framework for managing dates, time, reminders, and calendars.
 
 Coming soon...
 

@@ -4,15 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Events.xcscheme</key>
+		<key>Moments.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>7</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>965689781F017C0F001C656D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96DA95291F635E32008BFF65</key>
 		<dict>
 			<key>primary</key>
 			<true/>
