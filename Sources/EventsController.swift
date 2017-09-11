@@ -30,9 +30,9 @@
 
 import UIKit
 
-open class MomentsController: UIViewController {
-    /// A reference to an Moments instance.
-    open let moments = Moments()
+open class EventsController: UIViewController {
+    /// A reference to an Events instance.
+    open let events = Events()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +51,15 @@ open class MomentsController: UIViewController {
         view.backgroundColor = .white
         view.contentScaleFactor = UIScreen.main.scale
         
-        prepareMoments()
+        prepareEvents()
     }
 }
 
-fileprivate extension MomentsController {
-    /// Prepares the moments instance.
-    func prepareMoments() {
-        moments.delegate = self
+fileprivate extension EventsController {
+    /// Prepares the events instance.
+    func prepareEvents() {
+        events.delegate = self
     }
 }
 
-extension MomentsController: MomentsDelegate {}
+extension EventsController: EventsDelegate {}

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "96DA95291F635E32008BFF65"
-               BuildableName = "Moments.framework"
-               BlueprintName = "Moments"
-               ReferencedContainer = "container:Moments.xcodeproj">
+               BuildableName = "Events.framework"
+               BlueprintName = "Events"
+               ReferencedContainer = "container:Events.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,6 +29,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "96DA95291F635E32008BFF65"
+            BuildableName = "Moments.framework"
+            BlueprintName = "Moments"
+            ReferencedContainer = "container:Moments.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +51,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96DA95291F635E32008BFF65"
-            BuildableName = "Moments.framework"
-            BlueprintName = "Moments"
-            ReferencedContainer = "container:Moments.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96DA95291F635E32008BFF65"
-            BuildableName = "Moments.framework"
-            BlueprintName = "Moments"
-            ReferencedContainer = "container:Moments.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

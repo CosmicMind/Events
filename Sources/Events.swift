@@ -31,109 +31,109 @@
 import EventKit
 import CoreData
 
-@objc(MomentsReminderAuthorizationStatus)
-public enum MomentsReminderAuthorizationStatus: Int {
+@objc(EventsReminderAuthorizationStatus)
+public enum EventsReminderAuthorizationStatus: Int {
     case authorized
     case denied
 }
 
-@objc(MomentsReminderPriority)
-public enum MomentsReminderPriority: Int {
+@objc(EventsReminderPriority)
+public enum EventsReminderPriority: Int {
     case none
     case high = 1
     case medium = 5
     case low = 9
 }
 
-@objc(MomentsDelegate)
-public protocol MomentsDelegate {
+@objc(EventsDelegate)
+public protocol EventsDelegate {
     /**
      A delegation method that is executed when the reminder authorization 
      status changes.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      - Parameter status: A reference to the EventReminderAuthorizationStatus.
      */
     @objc
-    optional func moments(moments: Moments, status: MomentsReminderAuthorizationStatus)
+    optional func events(events: Events, status: EventsReminderAuthorizationStatus)
     
     /**
      A delegation method that is fired when changes to the event store occur.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      */
     @objc
-    optional func momentsShouldRefresh(moments: Moments)
+    optional func eventsShouldRefresh(events: Events)
     
     /**
-     A delegation method that is executed when moments authorization is authorized.
-     - Parameter moments: A reference to the Moments instance.
+     A delegation method that is executed when events authorization is authorized.
+     - Parameter events: A reference to the Events instance.
      */
     @objc
-    optional func momentsAuthorizedForReminders(moments: Moments)
+    optional func eventsAuthorizedForReminders(events: Events)
     
     /**
-     A delegation method that is executed when moments authorization is denied.
-     - Parameter moments: A reference to the Moments instance.
+     A delegation method that is executed when events authorization is denied.
+     - Parameter events: A reference to the Events instance.
      */
     @objc
-    optional func momentsDeniedForReminders(moments: Moments)
+    optional func eventsDeniedForReminders(events: Events)
     
     /**
      A delegation method that is executed when a new calendar is created.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      - Parameter createdCalendar calendar: An optional reference to the calendar created.
      - Parameter error: An optional error if the calendar failed to be created.
      */
     @objc
-    optional func moments(moments: Moments, createdCalendar calendar: EKCalendar?, error: Error?)
+    optional func events(events: Events, createdCalendar calendar: EKCalendar?, error: Error?)
     
     /**
      A delegation method that is executed when a calendar is updated.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      - Parameter updatedCalendar calendar: A reference to the updated calendar.
      - Parameter error: An optional error if the calendar failed to be updated.
      */
     @objc
-    optional func moments(moments: Moments, updatedCalendar calendar: EKCalendar, error: Error?)
+    optional func events(events: Events, updatedCalendar calendar: EKCalendar, error: Error?)
     
     /**
      A delegation method that is executed when a calendar is removed.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      - Parameter removedCalendar calendar: A reference to the calendar removed.
      - Parameter error: An optional error if the calendar failed to be removed.
      */
     @objc
-    optional func moments(moments: Moments, removedCalendar calendar: EKCalendar, error: Error?)
+    optional func events(events: Events, removedCalendar calendar: EKCalendar, error: Error?)
     
     /**
      A delegation method that is executed when a new reminder is created.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      - Parameter createdReminder reminder: An optional reference to the reminder created.
      - Parameter error: An optional error if the reminder failed to be created.
      */
     @objc
-    optional func moments(moments: Moments, createdReminder reminder: EKReminder?, error: Error?)
+    optional func events(events: Events, createdReminder reminder: EKReminder?, error: Error?)
     
     /**
      A delegation method that is executed when a reminder is updated.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      - Parameter updatedReminder reminder: A reference to the updated reminder.
      - Parameter error: An optional error if the reminder failed to be updated.
      */
     @objc
-    optional func moments(moments: Moments, updatedReminder reminder: EKReminder, error: Error?)
+    optional func events(events: Events, updatedReminder reminder: EKReminder, error: Error?)
     
     /**
      A delegation method that is executed when a reminder is removed.
-     - Parameter moments: A reference to the Moments instance.
+     - Parameter events: A reference to the Events instance.
      - Parameter removedReminder reminder: A reference to the removed reminder.
      - Parameter error: An optional error if the reminder failed to be removed.
      */
     @objc
-    optional func moments(moments: Moments, removedReminder reminder: EKReminder, error: Error?)
+    optional func events(events: Events, removedReminder reminder: EKReminder, error: Error?)
 }
 
-@objc(Moments)
-open class Moments: NSObject {
+@objc(Events)
+open class Events: NSObject {
     /// A cache of calendars.
     open fileprivate(set) var cacheForCalendars = [AnyHashable: EKCalendar]()
     
@@ -143,16 +143,16 @@ open class Moments: NSObject {
     /// A boolean indicating whether to commit saves or not.
     fileprivate var isCommitted = true
     
-    /// A reference to the momentsStore.
+    /// A reference to the eventsStore.
     fileprivate let eventStore = EKEventStore()
     
-    /// The current MomentsReminderAuthorizationStatus.
-    open var authorizationStatusForReminders: MomentsReminderAuthorizationStatus {
+    /// The current EventsReminderAuthorizationStatus.
+    open var authorizationStatusForReminders: EventsReminderAuthorizationStatus {
         return .authorized == EKEventStore.authorizationStatus(for: .reminder) ? .authorized : .denied
     }
     
-    /// A reference to an MomentsDelegate.
-    open weak var delegate: MomentsDelegate?
+    /// A reference to an EventsDelegate.
+    open weak var delegate: EventsDelegate?
     
     /// Denitializer.
     deinit {
@@ -163,7 +163,7 @@ open class Moments: NSObject {
      Requests authorization for reminders.
      - Parameter completion: An optional completion callback.
      */
-    open func requestAuthorizationForReminders(completion: ((MomentsReminderAuthorizationStatus) -> Void)? = nil) {
+    open func requestAuthorizationForReminders(completion: ((EventsReminderAuthorizationStatus) -> Void)? = nil) {
         eventStore.requestAccess(to: .reminder) { [weak self, completion = completion] (isAuthorized, _) in
             DispatchQueue.main.async { [weak self, completion = completion] in
                 guard let s = self else {
@@ -172,40 +172,40 @@ open class Moments: NSObject {
                 
                 guard isAuthorized else {
                     completion?(.denied)
-                    s.delegate?.moments?(moments: s, status: .denied)
-                    s.delegate?.momentsDeniedForReminders?(moments: s)
+                    s.delegate?.events?(events: s, status: .denied)
+                    s.delegate?.eventsDeniedForReminders?(events: s)
                     return
                 }
                 
                 s.prepareNotification()
                 
                 completion?(.authorized)
-                s.delegate?.moments?(moments: s, status: .authorized)
-                s.delegate?.momentsAuthorizedForReminders?(moments: s)
+                s.delegate?.events?(events: s, status: .authorized)
+                s.delegate?.eventsAuthorizedForReminders?(events: s)
             }
         }
     }
 }
 
-extension Moments {
+extension Events {
     /// Prepares the notification handlers.
     fileprivate func prepareNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleEventStoreChange(_:)), name: .EKEventStoreChanged, object: eventStore)
     }
 }
 
-extension Moments {
+extension Events {
     /**
      Handler for event store changes.
      - Parameter _ notification: A Notification.
      */
     @objc
     fileprivate func handleEventStoreChange(_ notification: Notification) {
-        delegate?.momentsShouldRefresh?(moments: self)
+        delegate?.eventsShouldRefresh?(events: self)
     }
 }
 
-extension Moments {
+extension Events {
     /// Begins a storage transaction.
     open func begin() {
         isCommitted = false
@@ -237,9 +237,9 @@ extension Moments {
     }
 }
 
-extension Moments {
+extension Events {
     /**
-     Creates a predicate for the moments Array of calendars.
+     Creates a predicate for the events Array of calendars.
      - Parameter in calendars: An optional Array of EKCalendars.
      */
     open func predicateForReminders(in calendars: [EKCalendar]) -> NSPredicate {
@@ -271,7 +271,7 @@ extension Moments {
     }
 }
 
-extension Moments {
+extension Events {
     /**
      Fetches all calendars for a given reminder.
      - Parameter completion: A completion call back
@@ -300,7 +300,7 @@ extension Moments {
      Fetches all reminders matching a given predicate.
      - Parameter predicate: A NSPredicate.
      - Parameter completion: A completion call back.
-     - Returns: A fetch moments request identifier.
+     - Returns: A fetch events request identifier.
      */
     @discardableResult
     open func fetchReminders(matching predicate: NSPredicate, completion: @escaping ([EKReminder]) -> Void) -> Any {
@@ -322,10 +322,10 @@ extension Moments {
     }
     
     /**
-     Fetch all the moments in a given Array of calendars.
+     Fetch all the events in a given Array of calendars.
      - Parameter in calendars: An Array of EKCalendars.
      - Parameter completion: A completion call back.
-     - Returns: A fetch moments request identifier.
+     - Returns: A fetch events request identifier.
      */
     @discardableResult
     open func fetchReminders(in calendars: [EKCalendar], completion: @escaping ([EKReminder]) -> Void) -> Any {
@@ -333,13 +333,13 @@ extension Moments {
     }
     
     /**
-     Fetch all the moments in a given Array of calendars that
+     Fetch all the events in a given Array of calendars that
      are incomplete, given a start and end date.
      - Parameter starting: A Date.
      - Parameter ending: A Date.
      - Parameter calendars: An Array of EKCalendars.
      - Parameter completion: A completion call back.
-     - Returns: A fetch moments request identifier.
+     - Returns: A fetch events request identifier.
      */
     @discardableResult
     open func fetchIncompleteReminders(starting: Date, ending: Date, calendars: [EKCalendar]? = nil, completion: @escaping ([EKReminder]) -> Void) -> Any {
@@ -347,13 +347,13 @@ extension Moments {
     }
     
     /**
-     Fetch all the moments in a given Array of calendars that
+     Fetch all the events in a given Array of calendars that
      are completed, given a start and end date.
      - Parameter starting: A Date.
      - Parameter ending: A Date.
      - Parameter calendars: An Array of EKCalendars.
      - Parameter completion: A completion call back.
-     - Returns: A fetch moments request identifier.
+     - Returns: A fetch events request identifier.
      */
     @discardableResult
     open func fetchCompletedReminders(starting: Date, ending: Date, calendars: [EKCalendar]? = nil, completion: @escaping ([EKReminder]) -> Void) -> Any {
@@ -361,7 +361,7 @@ extension Moments {
     }
     
     /**
-     Cancels an active moments request.
+     Cancels an active events request.
      - Parameter _ identifier: An identifier.
      */
     open func cancelFetchRequest(_ identifier: Any) {
@@ -369,7 +369,7 @@ extension Moments {
     }
 }
 
-extension Moments {
+extension Events {
     /**
      Creates a new reminder calendar.
      - Parameter calendar title: the name of the list.
@@ -404,7 +404,7 @@ extension Moments {
                 }
                 
                 completion?(success ? calendar : nil, error)
-                s.delegate?.moments?(moments: s, createdCalendar: success ? calendar : nil, error: error)
+                s.delegate?.events?(events: s, createdCalendar: success ? calendar : nil, error: error)
             }
         }
     }
@@ -438,7 +438,7 @@ extension Moments {
                 }
                 
                 completion?(success, error)
-                s.delegate?.moments?(moments: s, updatedCalendar: calendar, error: error)
+                s.delegate?.events?(events: s, updatedCalendar: calendar, error: error)
             }
         }
     }
@@ -461,7 +461,7 @@ extension Moments {
                 var userInfo = [String: Any]()
                 userInfo[NSLocalizedDescriptionKey] = "[Material Error: Cannot remove calendar with identifier \(identifier).]"
                 userInfo[NSLocalizedFailureReasonErrorKey] = "[Material Error: Cannot remove calendar with identifier \(identifier).]"
-                error = NSError(domain: "com.cosmicmind.material.moments", code: 0001, userInfo: userInfo)
+                error = NSError(domain: "com.cosmicmind.material.events", code: 0001, userInfo: userInfo)
                 
                 completion?(success, error)
                 return
@@ -484,24 +484,24 @@ extension Moments {
                 }
                 
                 completion?(success, error)
-                s.delegate?.moments?(moments: s, removedCalendar: calendar, error: error)
+                s.delegate?.events?(events: s, removedCalendar: calendar, error: error)
             }
         }
     }
 }
 
-extension Moments {    
+extension Events {    
     /**
      Adds a new reminder to an optionally existing list.
-     if the list does not exist it will be added to the default moments list.
+     if the list does not exist it will be added to the default events list.
      - Parameter title: A String.
      - Parameter calendar: An EKCalendar.
      - Parameter startDateComponents: An optional DateComponents.
      - Parameter dueDateComponents: An optional DateComponents.
-     - Parameter priority: An optional MomentsReminderPriority.
+     - Parameter priority: An optional EventsReminderPriority.
      - Parameter completion: An optional completion call back.
      */
-    open func createReminder(title: String, calendar: EKCalendar, startDateComponents: DateComponents? = nil, dueDateComponents: DateComponents? = nil, priority: MomentsReminderPriority? = .none, notes: String?, completion: ((EKReminder?, Error?) -> Void)? = nil) {
+    open func createReminder(title: String, calendar: EKCalendar, startDateComponents: DateComponents? = nil, dueDateComponents: DateComponents? = nil, priority: EventsReminderPriority? = .none, notes: String?, completion: ((EKReminder?, Error?) -> Void)? = nil) {
         DispatchQueue.global(qos: .default).async { [weak self, calendar = calendar, completion = completion] in
             guard let s = self else {
                 return
@@ -512,7 +512,7 @@ extension Moments {
             reminder.calendar = calendar
             reminder.startDateComponents = startDateComponents
             reminder.dueDateComponents = dueDateComponents
-            reminder.priority = priority?.rawValue ?? MomentsReminderPriority.none.rawValue
+            reminder.priority = priority?.rawValue ?? EventsReminderPriority.none.rawValue
             reminder.notes = notes
             
             var success = false
@@ -533,7 +533,7 @@ extension Moments {
                 }
                 
                 completion?(success ? reminder : nil, error)
-                s.delegate?.moments?(moments: s, createdReminder: success ? reminder : nil, error: error)
+                s.delegate?.events?(events: s, createdReminder: success ? reminder : nil, error: error)
             }
         }
     }
@@ -567,7 +567,7 @@ extension Moments {
                 }
                 
                 completion?(success, error)
-                s.delegate?.moments?(moments: s, updatedReminder: reminder, error: error)
+                s.delegate?.events?(events: s, updatedReminder: reminder, error: error)
             }
         }
     }
@@ -590,7 +590,7 @@ extension Moments {
                 var userInfo = [String: Any]()
                 userInfo[NSLocalizedDescriptionKey] = "[Material Error: Cannot remove reminder with identifier \(identifier).]"
                 userInfo[NSLocalizedFailureReasonErrorKey] = "[Material Error: Cannot remove reminder with identifier \(identifier).]"
-                error = NSError(domain: "com.cosmicmind.material.moments", code: 0002, userInfo: userInfo)
+                error = NSError(domain: "com.cosmicmind.material.events", code: 0002, userInfo: userInfo)
                 
                 completion?(success, error)
                 return
@@ -613,13 +613,13 @@ extension Moments {
                 }
                 
                 completion?(success, error)
-                s.delegate?.moments?(moments: s, removedReminder: reminder, error: error)
+                s.delegate?.events?(events: s, removedReminder: reminder, error: error)
             }
         }
     }
 }
 
-extension Moments {
+extension Events {
     /**
      Creates an alarm using the current time plus a given timeInterval.
      - Parameter timeIntervalSinceNow: A TimeInterval.

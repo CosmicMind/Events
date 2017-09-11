@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96DA95361F635F50008BFF65 /* Moments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689A91F017D11001C656D /* Moments.swift */; };
-		96DA95371F635F50008BFF65 /* MomentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689AA1F017D11001C656D /* MomentsController.swift */; };
-		96DA95381F635F68008BFF65 /* Moments.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689A81F017D11001C656D /* Moments.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		96DA95391F635F68008BFF65 /* Moments.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689A91F017D11001C656D /* Moments.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		96DA953A1F635F68008BFF65 /* MomentsController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689AA1F017D11001C656D /* MomentsController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DA95361F635F50008BFF65 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689A91F017D11001C656D /* Events.swift */; };
+		96DA95371F635F50008BFF65 /* EventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965689AA1F017D11001C656D /* EventsController.swift */; };
+		96DA95381F635F68008BFF65 /* Events.h in Headers */ = {isa = PBXBuildFile; fileRef = 965689A81F017D11001C656D /* Events.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DA95391F635F68008BFF65 /* Events.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689A91F017D11001C656D /* Events.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		96DA953A1F635F68008BFF65 /* EventsController.swift in Headers */ = {isa = PBXBuildFile; fileRef = 965689AA1F017D11001C656D /* EventsController.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		965689A81F017D11001C656D /* Moments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moments.h; sourceTree = "<group>"; };
-		965689A91F017D11001C656D /* Moments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moments.swift; sourceTree = "<group>"; };
-		965689AA1F017D11001C656D /* MomentsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentsController.swift; sourceTree = "<group>"; };
+		965689A81F017D11001C656D /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		965689A91F017D11001C656D /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		965689AA1F017D11001C656D /* EventsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsController.swift; sourceTree = "<group>"; };
 		965689AB1F017D11001C656D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965689C61F017EB6001C656D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		96DA952A1F635E32008BFF65 /* Moments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Moments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96DA952A1F635E32008BFF65 /* Events.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Events.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 		9656897A1F017C0F001C656D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96DA952A1F635E32008BFF65 /* Moments.framework */,
+				96DA952A1F635E32008BFF65 /* Events.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,9 +55,9 @@
 			children = (
 				965689C61F017EB6001C656D /* LICENSE */,
 				965689AB1F017D11001C656D /* Info.plist */,
-				965689A81F017D11001C656D /* Moments.h */,
-				965689A91F017D11001C656D /* Moments.swift */,
-				965689AA1F017D11001C656D /* MomentsController.swift */,
+				965689A81F017D11001C656D /* Events.h */,
+				965689A91F017D11001C656D /* Events.swift */,
+				965689AA1F017D11001C656D /* EventsController.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -69,18 +69,18 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DA95381F635F68008BFF65 /* Moments.h in Headers */,
-				96DA95391F635F68008BFF65 /* Moments.swift in Headers */,
-				96DA953A1F635F68008BFF65 /* MomentsController.swift in Headers */,
+				96DA95381F635F68008BFF65 /* Events.h in Headers */,
+				96DA95391F635F68008BFF65 /* Events.swift in Headers */,
+				96DA953A1F635F68008BFF65 /* EventsController.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		96DA95291F635E32008BFF65 /* Moments */ = {
+		96DA95291F635E32008BFF65 /* Events */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DA952F1F635E32008BFF65 /* Build configuration list for PBXNativeTarget "Moments" */;
+			buildConfigurationList = 96DA952F1F635E32008BFF65 /* Build configuration list for PBXNativeTarget "Events" */;
 			buildPhases = (
 				96DA95251F635E32008BFF65 /* Sources */,
 				96DA95261F635E32008BFF65 /* Frameworks */,
@@ -91,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = Moments;
+			name = Events;
 			productName = Moments;
-			productReference = 96DA952A1F635E32008BFF65 /* Moments.framework */;
+			productReference = 96DA952A1F635E32008BFF65 /* Events.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 965689731F017C0F001C656D /* Build configuration list for PBXProject "Moments" */;
+			buildConfigurationList = 965689731F017C0F001C656D /* Build configuration list for PBXProject "Events" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -123,7 +123,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96DA95291F635E32008BFF65 /* Moments */,
+				96DA95291F635E32008BFF65 /* Events */,
 			);
 		};
 /* End PBXProject section */
@@ -143,8 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DA95361F635F50008BFF65 /* Moments.swift in Sources */,
-				96DA95371F635F50008BFF65 /* MomentsController.swift in Sources */,
+				96DA95361F635F50008BFF65 /* Events.swift in Sources */,
+				96DA95371F635F50008BFF65 /* EventsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +264,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Moments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Events;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -283,7 +283,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Moments;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Events;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -293,7 +293,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		965689731F017C0F001C656D /* Build configuration list for PBXProject "Moments" */ = {
+		965689731F017C0F001C656D /* Build configuration list for PBXProject "Events" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9656897F1F017C0F001C656D /* Debug */,
@@ -302,13 +302,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DA952F1F635E32008BFF65 /* Build configuration list for PBXNativeTarget "Moments" */ = {
+		96DA952F1F635E32008BFF65 /* Build configuration list for PBXNativeTarget "Events" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DA95301F635E32008BFF65 /* Debug */,
 				96DA95311F635E32008BFF65 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
