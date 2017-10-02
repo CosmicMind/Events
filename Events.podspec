@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name = 'Events'
-    s.version = '1.0.1'
+    s.version = '1.1.0'
     s.license = 'BSD-3-Clause'
     s.summary = 'A framework for managing dates, time, reminders, and calendars.'
     s.homepage = 'http://cosmicmind.com'

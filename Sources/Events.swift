@@ -384,7 +384,7 @@ extension Events {
             let calendar = EKCalendar(for: .reminder, eventStore: s.eventStore)
             calendar.title = title
             
-            calendar.source = s.eventStore.defaultCalendarForNewReminders().source
+            calendar.source = s.eventStore.defaultCalendarForNewReminders()?.source
                     
             var success = false
             var error: Error?
